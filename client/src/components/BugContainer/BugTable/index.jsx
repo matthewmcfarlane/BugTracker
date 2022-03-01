@@ -22,6 +22,20 @@ const BugTable = () => {
     new Array({allBugs}.length).fill(false)
   );
 
+  const onRemoveAssignee = (event) => {
+    const assigneeIndex = event.target.value;
+    const editedBug = allBugs[event.target.id];
+
+    const editedBugIndex = allBugs.indexOf(editedBug);
+
+    editedBug.assignees.splice(assigneeIndex, 1);
+    patchBug(editedBug);
+
+    const newBugList = [...allBugs];
+    newBugList[editedBugIndex] = editedBug;
+    setAllBugs(newBugList);
+  }
+
   useEffect(() => {
     getAllUsers();
   }, []);
@@ -282,6 +296,7 @@ const BugTable = () => {
                 onAddAssignee={onAddAssignee}
                 allUsers={allUsers}
                 addUserFieldValue={addUserFieldValue}
+                onRemoveAssignee={onRemoveAssignee}
                 />
               </thead>
               <tbody className="bg-white divide-y divide-gray-200"></tbody>
@@ -297,19 +312,8 @@ const BugTable = () => {
       }
       </div>
     </div>
-  
-
-   
-  
-
     </div>
-
-
-  
-
-      
     </div>
-    
   );
 };
 
