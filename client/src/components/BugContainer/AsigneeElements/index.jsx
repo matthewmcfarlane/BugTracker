@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const AssigneeElements = ({ bug }) => {
+const AssigneeElements = ({ bug, onRemoveAssignee, bugIndex }) => {
 
   return bug.assignees.map((assignee, index) => {
     return(
@@ -11,6 +11,7 @@ const AssigneeElements = ({ bug }) => {
         <div className="text-sm text-gray-500">
           {assignee.email}
         </div>
+        <button value={index} id={bugIndex} onClick={onRemoveAssignee}>trash symbol</button>
       </div>
     )
   });
