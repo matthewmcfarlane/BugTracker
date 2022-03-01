@@ -113,23 +113,19 @@ const BugRows = ({
             <option value="low">low</option>
           </select> */}
         </td>
-        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-          Admin
-        </td>
         <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
           <a href="#" className="text-indigo-600 hover:text-indigo-900"></a>
-          {status}
-        </td>
-        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-          {bug.reporter.name}
-        </td>
-        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-          {bug.dateReported}
-        </td>
-        <td>
+          {status}<br/>
           <button value={index} onClick={handleToggleActive}>
             Toggle Active
           </button>
+        </td>
+        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+          {bug.reporter.name}<br/>
+          {bug.reporter.role}
+        </td>
+        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+          {bug.dateReported}
         </td>
         <td>
           <button value={index} onClick={() => removeBug(bug.id)}>
