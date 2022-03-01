@@ -5,6 +5,7 @@ import TopNavigation from './components/TopNavigation'
 import React, { useEffect, useState } from 'react';
 import Loading from './components/Loading';
 import BugTable from './components/BugContainer/BugTable';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
 
@@ -48,13 +49,17 @@ function App() {
   return (
     !isAuthenticated &&(loginWithRedirect()),
     <>
-<TopNavigation />
-<SideBar />
-    <div className="">
-      {/* <DashboardContainer /> */}
-      <BugTable />
-    </div>
+      <Router>
+        <TopNavigation />
+        <SideBar />
+        <Routes>
+          <Route exact path='/' element={<DashboardContainer />} />
+          <Route exact path='bugs' element={<BugTable />} />
+        </Routes>
+    </Router>
   </>
+  
+
   );
 }
 
