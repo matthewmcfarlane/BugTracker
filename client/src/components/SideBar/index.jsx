@@ -10,6 +10,8 @@ const SideBar = () => {
       </div>
       <Divider />
       <Link to="/bugs">Bug Table</Link>
+      <Divider />
+      <Link to="/mybugs">My Bugs</Link>
     </div>
   );
 };
