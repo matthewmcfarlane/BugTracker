@@ -205,7 +205,7 @@ const BugTable = () => {
     <div className="flex flex-col">
       <div className="flex flex-row">
         <div className="ml-2 mt-2 mb-2">
-          <select value={priorityFilter} onChange={onFilterByPriority}>
+          <select className="font-zappr" value={priorityFilter} onChange={onFilterByPriority}>
             <option value="clear" disabled hidden>
               filter by priority...
             </option>
@@ -214,7 +214,7 @@ const BugTable = () => {
             <option value="medium">medium</option>
             <option value="low">low</option>
           </select>
-          <select value={activeFilter} onChange={onFilterByActive}>
+          <select className="font-zappr" value={activeFilter} onChange={onFilterByActive}>
             <option value="clear" disabled hidden>
               filter by status...
             </option>
@@ -222,31 +222,31 @@ const BugTable = () => {
             <option value="true">open</option>
             <option value="false">closed</option>
           </select>
-          <select value={dateSort} onChange={onSortByDate}>
+          <select className="font-zappr" value={dateSort} onChange={onSortByDate}>
             <option value="clear" disabled hidden>
               sort by date...
             </option>
             <option value="newestFirst">newest first</option>
             <option value="oldestFirst">oldest first</option>
           </select>
-          <select value={prioritySort} onChange={onSortByPriority}>
+          <select className="font-zappr" value={prioritySort} onChange={onSortByPriority}>
             <option value="clear" disabled hidden>
               sort by priority...
             </option>
             <option value="highestFirst">highest first</option>
             <option value="lowestFirst">lowest first</option>
           </select>
-          {isEditing == true ? 
+          {/* {isEditing == true ? 
           <button onClick={() => removeBug()}>Remove Bugs</button>
-          : isEditing == false}
+          : isEditing == false} */}
         </div>
-        <div>
+        {/* <div>
           <button onClick={() => handleEditingClick()} className="mt-2 mb-2 bg-orange-400 rounded hover:bg-orange-600 p-2 ">
             Edit
           </button>
-        </div>
+        </div> */}
         <div>
-          <button onClick={() => {toggleAdding()}} className="bg-orange-400 rounded mt-2 mb-2 ml-1 hover:bg-orange-600 p-2 w-10">+</button>
+          <button onClick={() => {toggleAdding()}} className="font-zappr text-4xl bg-orange-400 rounded mt-2 mb-2 ml-1 hover:bg-orange-600 p-2 w-10">+</button>
         </div>
       </div>
       <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
