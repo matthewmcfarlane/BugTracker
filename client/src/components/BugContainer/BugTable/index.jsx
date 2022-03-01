@@ -136,19 +136,21 @@ const BugTable = () => {
   const onAddAssignee = (event) => {
     const editedBug = bugsToRender[event.target.id];
     const newAssigneeId = event.target.value;
+    var newAssignee;
     for(const user of allUsers){
       if(user.id == newAssigneeId){
-        var newAssignee = user;
+        newAssignee = user;
         break;
       }
     }
     editedBug.assignees.push(newAssignee);
     patchBug(editedBug);
     const updatedList = [...allBugs];
-    const bugIndex = updatedList.findIndex(bug => bug.id = editedBug.id);
+    const bugIndex = updatedList.findIndex(bug => bug.id == editedBug.id);
+    console.log(bugIndex);
     updatedList[bugIndex] = editedBug;
     setAllBugs(updatedList);
-    setAddUserFieldValue("");
+    // setAddUserFieldValue("");
   }
 
   useEffect(() => {

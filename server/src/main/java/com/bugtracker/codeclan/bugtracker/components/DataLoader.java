@@ -25,16 +25,16 @@ public class DataLoader implements ApplicationRunner {
     }
 
     public void run(ApplicationArguments args){
-        User adam = new User("123abc", "Adam Kidd", "aKidd", "adam@example.com", "admin");
+        User adam = new User("auth0|621627c01548de006813e14f", "Adam Kidd", "aKidd", "adamkidd3@gmail.com", "admin");
         userRepository.save(adam);
 
         User guilherme = new User("456def", "Guilherme Nunes", "gNunes", "gn@example.com", "admin");
         userRepository.save(guilherme);
 
-        User matthew = new User("789ghi","Matthew Mcfarlane", "mMcfarlane", "mm@example.com", "admin");
+        User matthew = new User("auth0|621414a817a9a800711359ad","Matthew McFarlane", "matthewmcfarlane1", "matthewmcfarlane1@outlook.com", "admin");
         userRepository.save(matthew);
 
-        User scott = new User("101jkl","Scott Reoch", "sReoch", "sr@example.com", "admin");
+        User scott = new User("auth0|6215372917a9a800711391c3","Scott Reoch", "sReoch", "sr@example.com", "admin");
         userRepository.save(scott);
 
         User clark = new User("111mno","Clark Kent", "cKent", "ck@example.com", "user");
