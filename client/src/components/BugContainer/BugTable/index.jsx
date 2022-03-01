@@ -24,7 +24,7 @@ const BugTable = () => {
 
   const onRemoveAssignee = (event) => {
     const assigneeIndex = event.target.value;
-    const editedBug = allBugs[event.target.id];
+    const editedBug = bugsToRender[event.target.id];
 
     const editedBugIndex = allBugs.indexOf(editedBug);
 
@@ -64,17 +64,19 @@ const BugTable = () => {
   }
 
   const onAddAssignee = (event) => {
-    const editedBug = allBugs[event.target.id];
+    const editedBug = bugsToRender[event.target.id];
     const newAssigneeId = event.target.value;
     for(const user of allUsers){
       if(user.id == newAssigneeId){
         var newAssignee = user;
+        break;
       }
     }
     editedBug.assignees.push(newAssignee);
     patchBug(editedBug);
     const updatedList = [...allBugs];
-    updatedList[event.target.id] = editedBug;
+    const bugIndex = updatedList.findIndex(bug => bug.id = editedBug.id);
+    updatedList[bugIndex] = editedBug;
     setAllBugs(updatedList);
     setAddUserFieldValue("");
   }
@@ -87,6 +89,8 @@ const BugTable = () => {
     setBugsToRender(allBugs);
     setActiveFilter("clear");
     setPriorityFilter("clear");
+    setDateSort("clear");
+    setPrioritySort("clear");
   }, [allBugs]);
 
   const getAllBugs = () => {
@@ -107,10 +111,12 @@ const BugTable = () => {
   }
 
   const handleChangePriority = (event) => {
+    const editedBug = bugsToRender[event.target.id];
+    const editedBugIndex = allBugs.indexOf(editedBug);
     const updatedList = [...allBugs];
-    updatedList[event.target.id].priority = event.target.value;
+    updatedList[editedBugIndex].priority = event.target.value;
     setAllBugs(updatedList);
-    patchBug(updatedList[event.target.id]);
+    patchBug(editedBug);
   }
 
   const handleOnChange = (position) => {
@@ -122,15 +128,14 @@ const BugTable = () => {
   };
 
   const handleToggleActive = (event) => {
-    event.preventDefault();
 
     //Find toggled bug and flip value
-    const bugIndex = event.target.value;
-    const toggledBug = allBugs[bugIndex];
+    const toggledBug = bugsToRender[event.target.value];
+    const toggledBugIndex = allBugs.indexOf(toggledBug);
     toggledBug.active = !toggledBug.active;
 
     const updatedBugsList = [...allBugs];
-    updatedBugsList[bugIndex] = toggledBug;
+    updatedBugsList[toggledBugIndex] = toggledBug;
     patchBug(toggledBug)
     .then(setAllBugs(updatedBugsList));
   }
