@@ -6,6 +6,7 @@ import React, { useEffect, useState } from 'react';
 import Loading from './components/Loading';
 import BugTable from './components/BugContainer/BugTable';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import MyBugs from './components/BugContainer/MyBugs'
 
 function App() {
 
@@ -57,6 +58,7 @@ function App() {
         <Routes>
           <Route exact path='/' element={<DashboardContainer />} />
           <Route exact path='bugs' element={<BugTable />} />
+          <Route exact path='mybugs' element={<MyBugs foundUserSub={user.sub} />} />
         </Routes>
     </Router>
   </>

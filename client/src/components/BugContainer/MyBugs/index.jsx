@@ -5,7 +5,7 @@ import BugRows from "../BugRows";
 import { filterByPriority, filterByActive, sortByDate, sortByPriority, filterByUser  } from "../../../services/SortAndFilter";
 import { deleteBug, patchBug } from "../../../services/BugsService";
 
-const BugTable = ({ foundUser }) => {
+const BugTable = ({ foundUserSub }) => {
   const { user } = useAuth0();
   const [allBugs, setAllBugs] = useState([]);
   const [isEditing, setIsEditing] = useState(false);
@@ -43,7 +43,7 @@ const BugTable = ({ foundUser }) => {
   const getAllUsers = () => {
     fetch("http://localhost:9090/users")
       .then((result) => result.json())
-      .then((data) => setAllUsers(filterByUser(data, foundUser.auth0Sub)));
+      .then((data) => setAllUsers(data));
   };
 
   const onBugAddition = (newBug) => {
@@ -97,8 +97,8 @@ const BugTable = ({ foundUser }) => {
     fetch("http://localhost:9090/bugs")
     .then((result) => result.json())
     .then((data) => {
-      setAllBugs(data);
-      setBugsToRender(data);
+      setAllBugs(filterByUser(data, foundUserSub));
+      setBugsToRender(filterByUser(data, foundUserSub));
     });
   };
 
@@ -205,7 +205,7 @@ const BugTable = ({ foundUser }) => {
     <div className="flex flex-col">
       <div className="flex flex-row">
         <div className="ml-2 mt-2 mb-2">
-          <select className="font-zappr" value={priorityFilter} onChange={onFilterByPriority}>
+          <select value={priorityFilter} onChange={onFilterByPriority}>
             <option value="clear" disabled hidden>
               filter by priority...
             </option>
@@ -214,7 +214,7 @@ const BugTable = ({ foundUser }) => {
             <option value="medium">medium</option>
             <option value="low">low</option>
           </select>
-          <select className="font-zappr" value={activeFilter} onChange={onFilterByActive}>
+          <select value={activeFilter} onChange={onFilterByActive}>
             <option value="clear" disabled hidden>
               filter by status...
             </option>
@@ -222,14 +222,14 @@ const BugTable = ({ foundUser }) => {
             <option value="true">open</option>
             <option value="false">closed</option>
           </select>
-          <select className="font-zappr" value={dateSort} onChange={onSortByDate}>
+          <select value={dateSort} onChange={onSortByDate}>
             <option value="clear" disabled hidden>
               sort by date...
             </option>
             <option value="newestFirst">newest first</option>
             <option value="oldestFirst">oldest first</option>
           </select>
-          <select className="font-zappr" value={prioritySort} onChange={onSortByPriority}>
+          <select value={prioritySort} onChange={onSortByPriority}>
             <option value="clear" disabled hidden>
               sort by priority...
             </option>
@@ -245,9 +245,6 @@ const BugTable = ({ foundUser }) => {
             Edit
           </button>
         </div> */}
-        <div>
-          <button onClick={() => {toggleAdding()}} className="font-zappr text-4xl bg-orange-400 rounded mt-2 mb-2 ml-1 hover:bg-orange-600 p-2 w-10">+</button>
-        </div>
       </div>
       <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
         <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
@@ -309,12 +306,6 @@ const BugTable = ({ foundUser }) => {
           </div>
         </div>
       </div>
-      { isAddingBug == true ?
-      <div className="flex absolute bg-orange-300 shadow-2xl p-20 rounded-xl border-8 border-orange-400 align-middle ml-80 mt-20">
-      <NewBugForm setIsAddingBug={setIsAddingBug} onBugAddition={onBugAddition}/>
-      </div>
-      : isAddingBug == false
-      }
       </div>
     </div>
     </div>
