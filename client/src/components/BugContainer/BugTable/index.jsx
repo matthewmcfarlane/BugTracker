@@ -5,6 +5,76 @@ import BugRows from "../BugRows";
 import { filterByPriority, filterByActive, sortByDate, sortByPriority  } from "../../../services/SortAndFilter";
 import { deleteBug, patchBug } from "../../../services/BugsService";
 
+function Modal() {
+  const [showModal, setShowModal] = React.useState(false);
+  return (
+    <>
+      <button
+        className="bg-pink-500 text-white active:bg-pink-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+        type="button"
+        onClick={() => setShowModal(true)}
+      >
+        Open regular modal
+      </button>
+      {showModal ? (
+        <>
+          <div
+            className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
+          >
+            <div className="relative w-auto my-6 mx-auto max-w-3xl">
+              {/*content*/}
+              <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+                {/*header*/}
+                <div className="flex items-start justify-between p-5 border-b border-solid border-blueGray-200 rounded-t">
+                  <h3 className="text-3xl font-semibold">
+                    Modal Title
+                  </h3>
+                  <button
+                    className="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
+                    onClick={() => setShowModal(false)}
+                  >
+                    <span className="bg-transparent text-black opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none">
+                      ×
+                    </span>
+                  </button>
+                </div>
+                {/*body*/}
+                <div className="relative p-6 flex-auto">
+                  <p className="my-4 text-blueGray-500 text-lg leading-relaxed">
+                    I always felt like I could do anything. That's the main
+                    thing people are controlled by! Thoughts- their perception
+                    of themselves! They're slowed down by their perception of
+                    themselves. If you're taught you can't do anything, you
+                    won't do anything. I was taught I could do everything.
+                  </p>
+                </div>
+                {/*footer*/}
+                <div className="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
+                  <button
+                    className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                    type="button"
+                    onClick={() => setShowModal(false)}
+                  >
+                    Close
+                  </button>
+                  <button
+                    className="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                    type="button"
+                    onClick={() => setShowModal(false)}
+                  >
+                    Save Changes
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
+        </>
+      ) : null}
+    </>
+  );
+}
+
 const BugTable = () => {
   const { user } = useAuth0();
   const [allBugs, setAllBugs] = useState([]);
@@ -205,7 +275,7 @@ const BugTable = () => {
     <div className="flex flex-col">
       <div className="flex flex-row">
         <div className="ml-2 mt-2 mb-2">
-          <select className="font-zappr" value={priorityFilter} onChange={onFilterByPriority}>
+          <select value={priorityFilter} onChange={onFilterByPriority}>
             <option value="clear" disabled hidden>
               filter by priority...
             </option>
@@ -214,7 +284,7 @@ const BugTable = () => {
             <option value="medium">medium</option>
             <option value="low">low</option>
           </select>
-          <select className="font-zappr" value={activeFilter} onChange={onFilterByActive}>
+          <select value={activeFilter} onChange={onFilterByActive}>
             <option value="clear" disabled hidden>
               filter by status...
             </option>
@@ -222,14 +292,14 @@ const BugTable = () => {
             <option value="true">open</option>
             <option value="false">closed</option>
           </select>
-          <select className="font-zappr" value={dateSort} onChange={onSortByDate}>
+          <select value={dateSort} onChange={onSortByDate}>
             <option value="clear" disabled hidden>
               sort by date...
             </option>
             <option value="newestFirst">newest first</option>
             <option value="oldestFirst">oldest first</option>
           </select>
-          <select className="font-zappr" value={prioritySort} onChange={onSortByPriority}>
+          <select value={prioritySort} onChange={onSortByPriority}>
             <option value="clear" disabled hidden>
               sort by priority...
             </option>
@@ -272,6 +342,7 @@ const BugTable = () => {
                     className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                   >
                     Severity
+                    <Modal />
                   </th>
                   <th
                     scope="col"
@@ -318,8 +389,9 @@ const BugTable = () => {
       </div>
     </div>
     </div>
-    </div>
+    </div>    
   );
 };
+
 
 export default BugTable;
