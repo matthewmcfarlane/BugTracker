@@ -7,6 +7,7 @@ import Loading from './components/Loading';
 import BugTable from './components/BugContainer/BugTable';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import MyBugs from './components/BugContainer/MyBugs'
+import ReportBugContainer from './components/ReportBugContainer';
 
 function App() {
 
@@ -59,6 +60,7 @@ function App() {
           <Route exact path='/' element={<DashboardContainer />} />
           <Route exact path='bugs' element={<BugTable />} />
           <Route exact path='mybugs' element={<MyBugs foundUserSub={user.sub} />} />
+          <Route exact path='report' element={<ReportBugContainer />}/>
         </Routes>
     </Router>
   </>

@@ -12,18 +12,14 @@ const SideBar = () => {
       <Link to="/bugs">Bug Table</Link>
       <Divider />
       <Link to="/mybugs">My Bugs</Link>
+      <Divider />
+      <Link to="/report">Report Bugs</Link>
+
     </div>
   );
 };
 
-const SideBarIcon = ({ icon, text = 'tooltip 💡' }) => (
-  <div className="sidebar-icon group">
-    {icon}
-    <span class="sidebar-tooltip group-hover:scale-100">
-      {text}
-    </span>
-  </div>
-);
+
 
 
 const Divider = () => <hr className="sidebar-hr" />;
