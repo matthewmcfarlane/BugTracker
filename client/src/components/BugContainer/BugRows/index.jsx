@@ -84,7 +84,6 @@ const BugRows = ({
         </td>
         <td className="px-6 py-4 whitespace-nowrap">
           <div className="text-sm text-gray-900">{bug.description}</div>
-          <div className="text-sm text-gray-500">Optimization</div>
         </td>
         <td className="px-6 py-4 whitespace-nowrap">
           {bug.priority == "low" ? (
