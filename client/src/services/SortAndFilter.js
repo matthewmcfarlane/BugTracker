@@ -41,3 +41,13 @@ export const sortByPriority = (bugList, highestPriorityFirst = true) => {
         return bugList.sort((a, b) => order.indexOf(b.priority) - order.indexOf(a.priority));
     }
 }
+
+export const filterForNoAssignees = (bugList) => {
+    const filteredBugList = [];
+    for(const bug of bugList){
+        if(bug.assignees.length === 0){
+            filteredBugList.push(bug);
+        }
+    }
+    return filteredBugList;
+}

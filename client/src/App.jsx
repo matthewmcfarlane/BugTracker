@@ -58,7 +58,7 @@ function App() {
         <TopNavigation />
         <SideBar />
         <Routes>
-          <Route exact path='/' element={<DashboardContainer />} />
+          <Route exact path='/' element={<DashboardContainer foundUserSub={user.sub}/>} />
           <Route exact path='bugs' element={<BugTable />} />
           <Route exact path='mybugs' element={<MyBugs foundUserSub={user.sub} />} />
           <Route exact path='report' element={<ReportBugContainer />}/>
