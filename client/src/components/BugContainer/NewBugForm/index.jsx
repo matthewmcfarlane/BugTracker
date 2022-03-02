@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { postBug } from "../../../services/BugsService";
 
-const NewBugForm = ({ onBugAddition, setIsAddingBug }) => {
+const NewBugForm = ({ onBugAddition }) => {
     const [allUsers, setAllUsers] = useState([]);
     const [description, setDescription] = useState("");
     const [priority, setPriority] = useState("");
@@ -157,8 +157,8 @@ const NewBugForm = ({ onBugAddition, setIsAddingBug }) => {
           </div>
         </div>
         <div class="flex flex-wrap -mx-3 mb-2">
-          <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-            <input onSubmit={() => setIsAddingBug(false)} type="submit" value="Save" id="save" />
+          <div class="rounded w-full md:w-1/3 px-3 mb-6 md:mb-0">
+            <input type="submit" value="Save" id="save" />
           </div>
         </div>
       </form>

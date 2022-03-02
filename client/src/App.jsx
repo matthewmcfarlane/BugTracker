@@ -46,6 +46,7 @@ function App() {
       checkUserInDB();
     }
   }, [user])
+  
 
 
   if (isLoading) return <Loading />
