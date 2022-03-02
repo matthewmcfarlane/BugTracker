@@ -195,47 +195,55 @@ const BugTable = ({ foundUserSub }) => {
   return (
 
 
-    <div className='dark:bg-black pl-52 pt-24 pb-8 pr-8 w-full h-full min-h-screen shadow-lg flex flex-row'>
+    <div className='dark:bg-black bg-white pl-52 pt-24 pb-8 pr-8 w-full h-full min-h-screen shadow-lg flex flex-row'>
 
-    <div className='bg-red-400 w-full h-full min-h-screen shadow-lg flex-1 overflow-hidden' >
+    {/* <div className='bg-red-400 w-full h-full min-h-screen shadow-lg flex-1 overflow-hidden' > */}
+    <div className= 'w-full h-full min-h-screen shadow-lg flex-1 overflow-hidden' >
 
 
 
     <div className={`${isAddingBug == true ? 'backdrop-blur-xl' : ''}`}>
     <div className="flex flex-col">
       <div className="flex flex-row">
-        <div className="ml-2 mt-2 mb-2">
-          <select value={priorityFilter} onChange={onFilterByPriority}>
+        <div className="ml-2 mt-2 mb-2 flex flex-wrap justify-between">
+        <div className="">
+        <label className="sort-labels">Filter by:</label> 
+          <select value={priorityFilter} onChange={onFilterByPriority} className="filter-dropdown">
             <option value="clear" disabled hidden>
-              filter by priority...
+              Priority
             </option>
             <option value="clear">show all</option>
             <option value="high">high</option>
             <option value="medium">medium</option>
             <option value="low">low</option>
           </select>
-          <select value={activeFilter} onChange={onFilterByActive}>
+          <select value={activeFilter} onChange={onFilterByActive} className="filter-dropdown">
             <option value="clear" disabled hidden>
-              filter by status...
+              Status
             </option>
             <option value="clear">show all</option>
             <option value="true">open</option>
             <option value="false">closed</option>
           </select>
-          <select value={dateSort} onChange={onSortByDate}>
+          </div>
+          <div className="flex">
+          <label className="sort-labels">Sort by:</label>
+          <select value={dateSort} onChange={onSortByDate} className="filter-dropdown">
+  
             <option value="clear" disabled hidden>
-              sort by date...
+              Date
             </option>
             <option value="newestFirst">newest first</option>
             <option value="oldestFirst">oldest first</option>
           </select>
-          <select value={prioritySort} onChange={onSortByPriority}>
+          <select value={prioritySort} onChange={onSortByPriority} className="filter-dropdown">
             <option value="clear" disabled hidden>
-              sort by priority...
+              Priority
             </option>
             <option value="highestFirst">highest first</option>
             <option value="lowestFirst">lowest first</option>
           </select>
+          </div>
           {/* {isEditing == true ? 
           <button onClick={() => removeBug()}>Remove Bugs</button>
           : isEditing == false} */}
@@ -244,6 +252,9 @@ const BugTable = ({ foundUserSub }) => {
           <button onClick={() => handleEditingClick()} className="mt-2 mb-2 bg-orange-400 rounded hover:bg-orange-600 p-2 ">
             Edit
           </button>
+        </div> */}
+        {/* <div>
+          <button onClick={() => {toggleAdding()}} className="font-zappr text-4xl bg-orange-400 rounded mt-2 mb-2 ml-1 hover:bg-orange-600 p-2 w-10">+</button>
         </div> */}
       </div>
       <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">

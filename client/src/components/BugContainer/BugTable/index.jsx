@@ -5,75 +5,6 @@ import BugRows from "../BugRows";
 import { filterByPriority, filterByActive, sortByDate, sortByPriority  } from "../../../services/SortAndFilter";
 import { deleteBug, patchBug } from "../../../services/BugsService";
 
-function Modal() {
-  const [showModal, setShowModal] = React.useState(false);
-  return (
-    <>
-      <button
-        className="bg-pink-500 text-white active:bg-pink-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-        type="button"
-        onClick={() => setShowModal(true)}
-      >
-        Open regular modal
-      </button>
-      {showModal ? (
-        <>
-          <div
-            className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
-          >
-            <div className="relative w-auto my-6 mx-auto max-w-3xl">
-              {/*content*/}
-              <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
-                {/*header*/}
-                <div className="flex items-start justify-between p-5 border-b border-solid border-blueGray-200 rounded-t">
-                  <h3 className="text-3xl font-semibold">
-                    Modal Title
-                  </h3>
-                  <button
-                    className="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
-                    onClick={() => setShowModal(false)}
-                  >
-                    <span className="bg-transparent text-black opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none">
-                      ×
-                    </span>
-                  </button>
-                </div>
-                {/*body*/}
-                <div className="relative p-6 flex-auto">
-                  <p className="my-4 text-blueGray-500 text-lg leading-relaxed">
-                    I always felt like I could do anything. That's the main
-                    thing people are controlled by! Thoughts- their perception
-                    of themselves! They're slowed down by their perception of
-                    themselves. If you're taught you can't do anything, you
-                    won't do anything. I was taught I could do everything.
-                  </p>
-                </div>
-                {/*footer*/}
-                <div className="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
-                  <button
-                    className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                    type="button"
-                    onClick={() => setShowModal(false)}
-                  >
-                    Close
-                  </button>
-                  <button
-                    className="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                    type="button"
-                    onClick={() => setShowModal(false)}
-                  >
-                    Save Changes
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
-        </>
-      ) : null}
-    </>
-  );
-}
 
 const BugTable = () => {
   const { user } = useAuth0();
@@ -269,45 +200,52 @@ const BugTable = () => {
 
     <div className='dark:bg-black pl-52 pt-24 pb-8 pr-8 w-full h-full min-h-screen shadow-lg flex flex-row'>
 
-    <div className='bg-red-400 w-full h-full min-h-screen shadow-lg flex-1 overflow-hidden' >
-
+    {/* <div className='bg-red-400 w-full h-full min-h-screen shadow-lg flex-1 overflow-hidden' > */}
+    <div className= 'w-full h-full min-h-screen shadow-lg flex-1 overflow-hidden' >
 
 
     <div className={`${isAddingBug == true ? 'backdrop-blur-xl' : ''}`}>
     <div className="flex flex-col">
       <div className="flex flex-row">
-        <div className="ml-2 mt-2 mb-2">
-          <select value={priorityFilter} onChange={onFilterByPriority}>
+        <div className="ml-2 mt-2 mb-2 flex flex-wrap justify-between">
+        <div className="">
+        <label className="sort-labels">Filter by:</label> 
+          <select value={priorityFilter} onChange={onFilterByPriority} className="filter-dropdown">
             <option value="clear" disabled hidden>
-              filter by priority...
+              Priority
             </option>
             <option value="clear">show all</option>
             <option value="high">high</option>
             <option value="medium">medium</option>
             <option value="low">low</option>
           </select>
-          <select value={activeFilter} onChange={onFilterByActive}>
+          <select value={activeFilter} onChange={onFilterByActive} className="filter-dropdown">
             <option value="clear" disabled hidden>
-              filter by status...
+              Status
             </option>
             <option value="clear">show all</option>
             <option value="true">open</option>
             <option value="false">closed</option>
           </select>
-          <select value={dateSort} onChange={onSortByDate}>
+          </div>
+          <div className="flex">
+          <label className="sort-labels">Sort by:</label>
+          <select value={dateSort} onChange={onSortByDate} className="filter-dropdown">
+  
             <option value="clear" disabled hidden>
-              sort by date...
+              Date
             </option>
             <option value="newestFirst">newest first</option>
             <option value="oldestFirst">oldest first</option>
           </select>
-          <select value={prioritySort} onChange={onSortByPriority}>
+          <select value={prioritySort} onChange={onSortByPriority} className="filter-dropdown">
             <option value="clear" disabled hidden>
-              sort by priority...
+              Priority
             </option>
             <option value="highestFirst">highest first</option>
             <option value="lowestFirst">lowest first</option>
           </select>
+          </div>
           {/* {isEditing == true ? 
           <button onClick={() => removeBug()}>Remove Bugs</button>
           : isEditing == false} */}
@@ -317,15 +255,15 @@ const BugTable = () => {
             Edit
           </button>
         </div> */}
-        <div>
+        {/* <div>
           <button onClick={() => {toggleAdding()}} className="font-zappr text-4xl bg-orange-400 rounded mt-2 mb-2 ml-1 hover:bg-orange-600 p-2 w-10">+</button>
-        </div>
+        </div> */}
       </div>
-      <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+      <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8 shadow-2xl ">
         <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
           <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-            <table className="min-w-full divide-y divide-gray-200">
-              <thead className="bg-gray-50">
+            <table className="min-w-full divide-y divide-gray-200 ">
+              <thead className="bg-gray-50 dark:bg-gray-700 shadow-xl">
                 <tr>
                   <th
                     scope="col"
@@ -344,7 +282,6 @@ const BugTable = () => {
                     className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                   >
                     Priority
-                    <Modal />
                   </th>
                   <th
                     scope="col"

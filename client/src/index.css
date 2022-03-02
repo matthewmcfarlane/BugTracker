@@ -79,6 +79,10 @@
     pl-1 rounded;
   }
 
+  .filter-dropdown{
+    @apply bg-transparent border-solid border-2 border-black rounded;
+  }
+
 
 
  
