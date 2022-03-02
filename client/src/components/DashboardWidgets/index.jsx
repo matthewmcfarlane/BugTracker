@@ -45,8 +45,11 @@ const AllWidgets = ({ foundUserSub }) => {
             { title: 'Medium', value: mediumBugsCount, color: '#F19908' },
             { title: 'Low', value: lowBugsCount, color: '#2dc937' }
             ]}
-        radius={25}
+        // radius={25}
+        viewBoxSize={[250, 250]}
         label={({ dataEntry }) => `${dataEntry.title}: ${dataEntry.value}`}
+        radius={75}
+        center={[90, 80]}
         />
         </div>
 
