@@ -1,5 +1,6 @@
 import AssigneeElements from "../AsigneeElements";
 import { useState, useEffect } from "react";
+import {  BsToggles } from 'react-icons/bs'
 
 const BugRows = ({
   bugsToRender,
@@ -72,7 +73,7 @@ const BugRows = ({
               <select
                 value={addUserFieldValue}
                 id={index}
-                onChange={onAddAssignee}
+                onChange={onAddAssignee} className="filter-dropdown"
               >
                 <option value="" hidden disabled>
                   add an assignee
@@ -113,10 +114,8 @@ const BugRows = ({
           </select> */}
         </td>
         <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-          <a href="#" className="text-indigo-600 hover:text-indigo-900"></a>
-          {status}<br/>
-          <button value={index} onClick={handleToggleActive}>
-            Toggle Active
+          <button value={index} onClick={handleToggleActive} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+            {status}
           </button>
         </td>
         <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
