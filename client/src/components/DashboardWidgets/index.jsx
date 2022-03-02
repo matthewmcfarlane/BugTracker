@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
-import { filterByUser, filterForNoAssignees } from "../../services/SortAndFilter";
+import { filterByPriority, filterByUser, filterForNoAssignees } from "../../services/SortAndFilter";
+import { PieChart } from 'react-minimal-pie-chart';
+
 
 const AllWidgets = ({ foundUserSub }) => {
 
@@ -7,6 +9,9 @@ const AllWidgets = ({ foundUserSub }) => {
     const [allBugsCount, setAllBugsCount] = useState(0);
     const [myBugsCount, setMyBugsCount] = useState(0);
     const [unassignedBugsCount, setUnassignedBugsCount] = useState(0);
+    const [highBugsCount, setHighBugsCount] = useState(0);
+    const [mediumBugsCount, setMediumBugsCount] = useState(0);
+    const [lowBugsCount, setLowBugsCount] = useState(0);
 
     const getAllBugs = () => {
         fetch("http://localhost:9090/bugs")
@@ -16,6 +21,9 @@ const AllWidgets = ({ foundUserSub }) => {
           setAllBugsCount(data.length);
           setMyBugsCount(filterByUser(data, foundUserSub).length);
           setUnassignedBugsCount(filterForNoAssignees(data).length);
+          setHighBugsCount(filterByPriority(data, "high").length);
+          setMediumBugsCount(filterByPriority(data, "medium").length);
+          setLowBugsCount(filterByPriority(data, "low").length);
         });
     };
 
@@ -28,10 +36,18 @@ const AllWidgets = ({ foundUserSub }) => {
         <div className="flex flex-wrap justify-around">
 
 
-       <TotalTickets allBugsCount={allBugsCount}/>
-       <MyTickets myBugsCount={myBugsCount}/>
-       <UnassignedTickets unassignedBugsCount={unassignedBugsCount}/>
-
+        <TotalTickets allBugsCount={allBugsCount}/>
+        <MyTickets myBugsCount={myBugsCount}/>
+        <UnassignedTickets unassignedBugsCount={unassignedBugsCount}/>
+        <PieChart
+        data={[
+            { title: 'High', value: highBugsCount, color: '#F10808' },
+            { title: 'Medium', value: mediumBugsCount, color: '#F19908' },
+            { title: 'Low', value: lowBugsCount, color: '#2dc937' }
+            ]}
+        radius={25}
+        label={({ dataEntry }) => `${dataEntry.title}: ${dataEntry.value}`}
+        />
         </div>
 
 
