@@ -1,9 +1,13 @@
 import { useState, useEffect } from "react";
 import { filterByPriority, filterByUser, filterForNoAssignees } from "../../services/SortAndFilter";
-import { PieChart } from 'react-minimal-pie-chart';
+import { PieChart } from "react-minimal-pie-chart";
+
 
 
 const AllWidgets = ({ foundUserSub }) => {
+
+
+    
 
     const [allBugs, setAllBugs] = useState([]);
     const [allBugsCount, setAllBugsCount] = useState(0);
@@ -31,39 +35,103 @@ const AllWidgets = ({ foundUserSub }) => {
         getAllBugs();
     }, []);
 
+
+    // const doughnutOptions = {
+    //     data: {
+    //       datasets: [
+    //         {
+    //           data: [{highBugsCount}, {mediumBugsCount}, {lowBugsCount}],
+    //           /**
+    //            * These colors come from Tailwind CSS palette
+    //            * https://tailwindcss.com/docs/customizing-colors/#default-color-palette
+    //            */
+    //           backgroundColor: ['#c62126', '#4486f5', '#1d946f'],
+    //           label: 'Dataset 1',
+    //         },
+    //       ],
+    //       labels: ['High', 'Medium', 'Low'],
+    //     },
+    //     options: {
+    //       responsive: true,
+    //       cutoutPercentage: 80,
+    //     },
+    //     legend: {
+    //       display: false,
+    //     },
+    //   }
+
+// const doughnutLegends = [
+//         { title: 'High', color: 'bg-[#c62125]' },
+//         { title: 'Medium', color: 'bg-[##4486f5]' },
+//         { title: 'Low', color: 'bg-[#1d946f]' },
+//       ]
+
+//       function ChartLegend({ legends }) {
+//         return (
+//           <div className="flex justify-center mt-4 space-x-3 text-sm text-gray-600 dark:text-gray-400">
+//             {legends.map((legend) => (
+//               <div className="flex items-center" key={legend.title}>
+//                 <span className={`inline-block w-3 h-3 mr-1 ${legend.color} rounded-full`}></span>
+//                 <span>{legend.title}</span>
+//               </div>
+//             ))}
+//           </div>
+//         )
+//       }
+
+
+
+      
     return ( 
 
+        <div className="flex flex-col">
+
         <div className="flex flex-wrap justify-around">
-
-
         <TotalTickets allBugsCount={allBugsCount}/>
         <MyTickets myBugsCount={myBugsCount}/>
         <UnassignedTickets unassignedBugsCount={unassignedBugsCount}/>
+       </div>
+        
         <PieChart
         data={[
-            { title: 'High', value: highBugsCount, color: '#F10808' },
-            { title: 'Medium', value: mediumBugsCount, color: '#F19908' },
-            { title: 'Low', value: lowBugsCount, color: '#2dc937' }
+            { title: 'High', value: highBugsCount, color: '#c62125' },
+            { title: 'Medium', value: mediumBugsCount, color: '#4486f5' },
+            { title: 'Low', value: lowBugsCount, color: '#1d946f' }
             ]}
         // radius={25}
-        viewBoxSize={[250, 250]}
-        label={({ dataEntry }) => `${dataEntry.title}: ${dataEntry.value}`}
-        radius={75}
-        center={[90, 80]}
-        />
-        </div>
-
-
-     );
-}
+        viewBoxSize={[100, 100]}
+        radius={20}
+        center={[50, 30]}
+        /> 
+{/* <PieChart
+ animation
+   animationDuration={500}
+   animationEasing="ease-out"
+   center={[50, 50]}
+   data={[
+            { title: 'High', value: highBugsCount, color: '#c62125' },
+            { title: 'Medium', value: mediumBugsCount, color: '#4486f5' },
+            { title: 'Low', value: lowBugsCount, color: '#1d946f' }
+            ]}
+   labelPosition={0}
+   lengthAngle={360}
+   lineWidth={15}
+   paddingAngle={0}
+   radius={10}
+   rounded
+   startAngle={0}
+   viewBoxSize={[100, 100]}/> */}
+    </div>
+     )}
  
 
 const TotalTickets = ({ allBugsCount }) => {
     return ( 
+<div className="flex flex-grow flex-col content-center p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-[#1a1c23] dark:border-gray-700 dark:hover:bg-gray-700">
+        <p className="card-title flex " >Total Open Tickets</p>
+        <p className="card-val flex">{allBugsCount}</p>
+    </div>
 
-        <div className="widget h-32 w-32">
-            <h2>Total Open Tickets: {allBugsCount}</h2>
-        </div>
     
      );
     }
@@ -71,25 +139,30 @@ const TotalTickets = ({ allBugsCount }) => {
 const MyTickets = ({ myBugsCount }) => {
     return ( 
 
-        <div className="widget h-32 w-32">
-            <h2>My Open Tickets: {myBugsCount}</h2>
-        </div>
+        <div className="flex flex-grow flex-col content-center p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-[#1a1c23] dark:border-gray-700 dark:hover:bg-gray-700">
+        <p className="card-title flex " >My Open Tickets</p>
+        <p className="card-val flex">{myBugsCount}</p>
+    </div>
     
      );
     }
 
 const UnassignedTickets = ({ unassignedBugsCount }) => {
     return ( 
+      
+        <div className="flex flex-grow flex-col content-center p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-[#1a1c23] dark:border-gray-700 dark:hover:bg-gray-700">
+        <p className="card-title flex " >Unassigned Tickets</p>
+        <p className="card-val flex">{unassignedBugsCount}</p>
+    </div>
 
-        <div className="widget h-32 w-32">
-            <h2>Unassigned Tickets: {unassignedBugsCount}</h2>
-        </div>
-    
+
+
+
      );
     }
 
  
-
+  
 
 
 
