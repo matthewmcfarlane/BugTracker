@@ -24,6 +24,11 @@
   }
 
 
+.content-container{
+  @apply
+  
+}
+
   .widget {
     @apply
       bg-indigo-700 text-gray-100
@@ -59,6 +64,14 @@
     @apply ml-auto mr-4;
   }
 
+  .card-title{
+    @apply mb-2 text-sm font-medium text-gray-600 dark:text-gray-400
+  }
+
+  .card-val{
+    @apply text-lg font-semibold text-gray-700 dark:text-gray-200
+  }
+
   
 
   
@@ -80,7 +93,7 @@
   }
 
   .filter-dropdown{
-    @apply bg-transparent border-solid border-2 border-black rounded;
+    @apply bg-transparent border-solid border-2 border-black dark:border-white rounded;
   }
 
 

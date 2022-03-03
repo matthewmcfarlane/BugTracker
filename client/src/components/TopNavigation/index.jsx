@@ -13,10 +13,10 @@ import useDarkMode from '../../hooks/useDarkMode';
 const TopNavigation = () => {
   return (
     <div className='flex flex-row items-center justify-evenly 
-    bg-deeppurple-700 dark:bg-gray-700 
+    bg-white dark:bg-[#1a1c23] 
     h-16 
-    m-0  w-full fixed
-    shadow-lg;'>
+    m-0  w-full fixed pl-44 ml-0
+    shadow-xl'>
       <Title />
       <ThemeIcon />
       <Search />
@@ -61,6 +61,6 @@ const { logout, isAuthenticated } = useAuth0();
 
 const Title = () => <h5 className='text-5xl inline-block align-middle font-zappr text-gray-500 tracking-wider font-semibold text-opacity-80 
 mr-auto ml-4 my-auto 
-transition duration-300 ease-in-out'>Zappr</h5>;
+transition duration-300 ease-in-out'></h5>;
 
 export default TopNavigation;

@@ -57,13 +57,6 @@ const BugRows = ({
             ) : (
               isEditing == false
             )}
-            <div className="flex-shrink-0 h-10 w-10">
-              {/* <img
-                    className="h-10 w-10 rounded-full"
-                    src={user.picture}
-                    alt=""
-                  /> */}
-            </div>
             <div className="ml-4">
               <AssigneeElements
                 bug={bug}
@@ -84,21 +77,21 @@ const BugRows = ({
           </div>
         </td>
         <td className="px-6 py-4 whitespace-nowrap">
-          <div className="text-sm text-gray-900">{bug.description}</div>
+          <div className="text-sm text-gray-900 dark:text-[#9c9c9c]">{bug.description}</div>
         </td>
         <td className="px-6 py-4 whitespace-nowrap">
           {bug.priority == "low" ? (
-            <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+            <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-[#dff7ec] text-[#0e684c] dark:bg-[#0f6c4f] dark:text-[#eeeeef]">
               {" "}
               {bug.priority}{" "}
             </span>
           ) : bug.priority == "medium" ? (
-            <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
+            <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-[#edecfe] dark:bg-[#7e44ee] text-[#6533c9] dark:text-[#eeeeef]">
               {" "}
               {bug.priority}{" "}
             </span>
           ) : (
-            <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
+            <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-[#fde8e8] dark:bg-[#c62126]  text-[#c64044] dark:text-[#eeeeef]">
               {" "}
               {bug.priority}{" "}
             </span>
@@ -114,22 +107,22 @@ const BugRows = ({
           </select> */}
         </td>
         <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-          <button value={index} onClick={handleToggleActive} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+          <button value={index} onClick={handleToggleActive} className="bg-[#7e44ee] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
             {status}
           </button>
         </td>
-        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-          {bug.reporter.name}<br/>
+        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-[#9c9c9c]">
+          <b>{bug.reporter.name}</b><br/>
           {bug.reporter.role}
         </td>
-        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-[#9c9c9c]">
           {bug.dateReported}
         </td>
         <td>
           <button value={index} onClick={() => removeBug(bug.id)}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
+              className="h-6 w-6 dark:text-[#9c9c9c]"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"

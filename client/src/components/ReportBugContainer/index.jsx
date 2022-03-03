@@ -18,11 +18,13 @@ const ReportBugContainer = () => {
   }
 
   return (
-    <div className='dark:bg-black pl-52 pt-24 pb-8 pr-8 w-full h-full min-h-screen shadow-lg flex flex-row'>
+    <div className='bg-gray-50 dark:bg-[#121317] pl-72 pt-24 pb-8 pr-10 w-full h-full min-h-screen shadow-lg flex flex-row'>
 
-    <div className='bg-red-400 dark:bg-gray-700 w-full h-full min-h-screen shadow-lg flex-1 overflow-hidden' >
+    <div className='w-full h-full min-h-screen' >
 
-    <div className="flex flex-col justify-center items-center pt-16">
+    <h1 className="my-6 text-2xl font-semibold text-[#24262d] dark:text-[#e5e7eb]">Report Issue</h1>
+
+    <div className="flex flex-col justify-center items-center pt-16 bg-white shadow-xl dark:bg-[#1a1c23] ">
 
       <NewBugForm onBugAddition={onBugAddition} />
 

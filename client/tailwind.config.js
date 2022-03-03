@@ -1,33 +1,22 @@
 const colors = require('tailwindcss/colors')
-
+const defaultTheme = require('tailwindcss/defaultTheme')
 module.exports = {
   enabled: true,
   mode: 'jit',
   purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
   darkMode: 'class', // class, 'media' or boolean
-  theme: {
-    extend: {
-      colors: {
-        gray: {
-          900: '#202225',
-          800: '#2f3136',
-          700: '#36393f',
-          600: '#4f545c',
-          400: '#d4d7dc',
-          300: '#e3e5e8',
-          200: '#ebedef',
-          100: '#f2f3f5',
-        },
-        deeppurple: {700: '#303F9F',
-      },
-      },
-      spacing: {
-        88: '22rem',
-      },
-    },
+  extend: {
     fontFamily: {
-			zappr: ['Barriecito', 'cursive']
-		}
+      sans: ['Inter', ...defaultTheme.fontFamily.sans],
+    },
+    colors:{
+      teal: {300: '#4DB6AC',
+
+      }
+    },
+    boxShadow: {
+      bottom: '0 5px 6px -7px rgba(0, 0, 0, 0.6), 0 2px 4px -5px rgba(0, 0, 0, 0.06)',
+    },
   },
   variants: {},
   plugins: [],

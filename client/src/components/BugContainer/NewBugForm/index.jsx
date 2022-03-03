@@ -95,15 +95,21 @@ const NewBugForm = ({ onBugAddition }) => {
       //     <input type="submit" value="Save" id="save"/>
       // </form>
   
+<>
+
+
+
+
+
       <form onSubmit={onSubmit} class="blur-none w-full max-w-lg">
         <div class="flex flex-wrap -mx-3 mb-6">
             {/* <h3 className="">Post a bug!</h3> */}
           <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
             <label
-              class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+              class="block uppercase tracking-wide text-gray-700 dark:text-[#9c9c9c] text-xs font-bold mb-2"
               htmlFor="description"
             >
-              Bug Description:
+              Short Description:
             </label>
             <input
               onChange={onChange}
@@ -111,19 +117,19 @@ const NewBugForm = ({ onBugAddition }) => {
               id="description"
               value={description}
               required
-              class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+              class="appearance-none block w-full bg-gray-200 text-gray-700 dark:text-[#9c9c9c] solid border-0 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
             />
-            <p class="text-red-500 text-xs italic">Please fill out this field.</p>
+            {/* <p class="text-red-500 text-xs italic">Please fill out this field.</p> */}
           </div>
           <div class="w-full md:w-1/2 px-3">
             <label
-              class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+              class="block uppercase tracking-wide text-gray-700 dark:text-[#9c9c9c] text-xs font-bold mb-2"
               htmlFor="priorty"
             >
               Severity:
             </label>
             <select
-              class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+              class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 dark:text-[#9c9c9c] rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
               onChange={onChange}
               id="priority"
               value={priority}
@@ -139,7 +145,7 @@ const NewBugForm = ({ onBugAddition }) => {
         <div class="flex flex-wrap -mx-3 mb-6">
           <div class="w-full px-3">
             <label
-              class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+              class="block uppercase tracking-wide text-gray-700 text-xs dark:text-[#9c9c9c] font-bold mb-2"
               htmlFor="reporter"
             >
               Reported By:
@@ -158,10 +164,17 @@ const NewBugForm = ({ onBugAddition }) => {
         </div>
         <div class="flex flex-wrap -mx-3 mb-2">
           <div class="rounded w-full md:w-1/3 px-3 mb-6 md:mb-0">
-            <input type="submit" value="Save" id="save" />
+          <button type="submit" value="Save" id="save" className="bg-[#7e44ee] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+            Submit
+          </button>
+      
           </div>
         </div>
       </form>
+
+    
+
+      </>
     );
   };
   

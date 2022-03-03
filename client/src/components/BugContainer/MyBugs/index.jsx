@@ -195,15 +195,16 @@ const BugTable = ({ foundUserSub }) => {
   return (
 
 
-    <div className='dark:bg-black bg-white pl-52 pt-24 pb-8 pr-8 w-full h-full min-h-screen shadow-lg flex flex-row'>
+    <div className='bg-gray-50 dark:bg-[#121317] pl-72 pt-24 pb-8 pr-10 w-full h-full min-h-screen shadow-lg flex flex-row'>
 
-    {/* <div className='bg-red-400 w-full h-full min-h-screen shadow-lg flex-1 overflow-hidden' > */}
-    <div className= 'w-full h-full min-h-screen shadow-lg flex-1 overflow-hidden' >
+    <div className='w-full h-full min-h-screen' >
+
+    <h1 className="my-6 text-2xl font-semibold text-[#24262d] dark:text-[#e5e7eb]">My Issues</h1>
 
 
 
     <div className={`${isAddingBug == true ? 'backdrop-blur-xl' : ''}`}>
-    <div className="flex flex-col">
+    <div className="flex flex-col dark:text-white">
       <div className="flex flex-row">
         <div className="ml-2 mt-2 mb-2 flex flex-wrap justify-between">
         <div className="">
@@ -261,41 +262,41 @@ const BugTable = ({ foundUserSub }) => {
         <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
           <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
             <table className="min-w-full divide-y divide-gray-200">
-              <thead className="bg-gray-50">
+              <thead className="bg-white dark:bg-[#1a1c23] shadow-xl">
               <tr>
                   <th
                     scope="col"
-                    className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-[#9c9c9c] uppercase tracking-wider"
                   >
                     Assignees
                   </th>
                   <th
                     scope="col"
-                    className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-[#9c9c9c] uppercase tracking-wider"
                   >
                     Description
                   </th>
                   <th
                     scope="col"
-                    className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-[#9c9c9c] uppercase tracking-wider"
                   >
                     Priority
                   </th>
                   <th
                     scope="col"
-                    className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-[#9c9c9c] uppercase tracking-wider"
                   >
                     Status
                   </th>
                   <th
                     scope="col"
-                    className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-[#9c9c9c] uppercase tracking-wider"
                   >
                     Reporter
                   </th>
                   <th
                     scope="col"
-                    className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-[#9c9c9c] uppercase tracking-wider"
                   >
                     Date
                   </th>

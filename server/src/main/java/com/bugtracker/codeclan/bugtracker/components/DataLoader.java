@@ -50,41 +50,42 @@ public class DataLoader implements ApplicationRunner {
         userRepository.save(oliver);
 
 
-        Bug bug1 = new Bug("bug description1", "high", adam);
+        Bug bug1 = new Bug("Cannot check the naughty list", "high", adam);
         bug1.addAssignee(adam);
         bug1.addAssignee(guilherme);
+        bug1.setDateReported(LocalDate.of(2021, 12, 25));
         bugRepository.save(bug1);
 
-        Bug bug2 = new Bug("bug description2", "low", matthew);
+        Bug bug2 = new Bug("Logo does not show", "low", matthew);
         bug2.addAssignee(matthew);
         bug2.setDateReported(LocalDate.of(2020, 10, 12));
         bugRepository.save(bug2);
 
-        Bug bug3 = new Bug("bug description3", "medium", scott);
+        Bug bug3 = new Bug("NavBar is not responsive", "medium", scott);
         bug3.addAssignee(clark);
         bug3.setDateReported(LocalDate.of(2020, 8, 7));
         bugRepository.save(bug3);
 
-        Bug bug4 = new Bug("bug description4", "high", guilherme);
+        Bug bug4 = new Bug("Sign-up form does not work", "high", guilherme);
         bug4.addAssignee(bruce);
         bug4.setDateReported(LocalDate.of(2021, 2, 5));
         bugRepository.save(bug4);
 
-        Bug bug5 = new Bug("bug description5", "low", guilherme);
+        Bug bug5 = new Bug("User does not stay logged in", "low", guilherme);
         bug5.addAssignee(barry);
         bug5.setDateReported((LocalDate.of(2021, 1, 26)));
         bugRepository.save(bug5);
 
-        Bug bug6 = new Bug("bug description6", "high", matthew);
+        Bug bug6 = new Bug("Footer does not render", "high", matthew);
         bug6.addAssignee(oliver);
         bug6.setDateReported(LocalDate.of(2020, 12, 28));
         bugRepository.save(bug6);
 
-        Bug bug7 = new Bug("bug description7", "low", clark);
+        Bug bug7 = new Bug("Careers page does not render content", "low", clark);
         bug7.addAssignee(guilherme);
         bugRepository.save(bug7);
 
-        Bug bug8 = new Bug("bug description8", "medium", bruce);
+        Bug bug8 = new Bug("Notifications are intermittent", "medium", bruce);
         bug8.addAssignee(matthew);
         bugRepository.save(bug8);
 
