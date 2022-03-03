@@ -4,7 +4,6 @@ import {RiDashboardLine} from 'react-icons/ri'
 import {BsTable} from 'react-icons/bs'
 import {AiOutlineForm} from 'react-icons/ai'
 import {GiHamburgerMenu} from 'react-icons/gi'
-import routes from '../../routes/sidebar'
 
 
 
