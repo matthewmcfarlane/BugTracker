@@ -82,6 +82,7 @@ A user should be able to:
 ## Further Work
 
 - Tidy up the repo (Split up components etc.)
+- Improve colour scheme
 
 
 ## The project is built using:
