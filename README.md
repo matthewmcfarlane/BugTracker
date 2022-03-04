@@ -20,7 +20,7 @@ This app was built with using ReactJS, Java, Spring, H2, TailwindCSS and Auth0.
 
 | Front-end (client) | Back-end (server)    |
 | :---               | :---                 |
-| `npm install`      |  Open project with   |
+| `npm install`      |  Open project with IDE such as InteliJand run BugTrackerApplication                                      |
 | `npm start`        |  IDE such as InteliJ |
 |                    |  and run             |
 |                    | BugTrackerApplication|
