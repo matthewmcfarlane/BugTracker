@@ -47,7 +47,7 @@ My Issues
 
 ![My Issues - Light](images/light-myissues.png "My Issues - Light")
 
-![My Issues - Dark](images/light-myissues.png "My Issues - Dark")
+![My Issues - Dark](images/dark-myissues.png "My Issues - Dark")
 
 
 Report Issue
