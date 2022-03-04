@@ -24,8 +24,9 @@ This app was built with using ReactJS, Java, Spring, H2, TailwindCSS and Auth0.
 | `npm start`        |  `Run BugTrackerApplication` |
 
 
-Navigate to localhost:3000. 
+Navigate to localhost:3000.
 In order to login, a demo account has been created. The credentials are:
 
 Email: IssueTrackerDemoUser@gmail.com
+
 Password: DemoAccount2022!
