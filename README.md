@@ -16,6 +16,19 @@ This app was built with using ReactJS, Java, Spring, H2, TailwindCSS and Auth0.
 
 
 
+
+## The project is built using:
+* ReactJS (https://reactjs.org/)
+* Java (https://www.java.com/en/)
+* Spring (https://spring.io/)
+* H2 (https://www.h2database.com/html/main.html)
+* TailwindCSS (https://tailwindcss.com/)
+* Auth0 (https://auth0.com/)
+
+
+
+
+
 ## Project set up
 
 | Front-end (client) | Back-end (server)    |
