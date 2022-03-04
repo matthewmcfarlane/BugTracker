@@ -15,6 +15,74 @@ Users are able to toggle between light mode and dark mode.
 This app was built with using ReactJS, Java, Spring, H2, TailwindCSS and Auth0.
 
 
+## Screenshots
+
+
+
+Login Page
+
+![Login Page](images/login.png "Login")
+
+Dashboard
+
+
+![Dashboard - Light](images/light-dashboard.png "Dashboard - Light")
+
+![Dashboard - Dark](images/dark-dashboard.png "Dashboard - Dark")
+
+All Issues
+
+![All issues - Light](images/light-all.png "All issues - Light")
+
+![All issues - Dark](images/dark-all.png "All issues - Dark")
+
+All Issues - Filtered and Sorted
+
+![Filter - Light](images/light-filtered.png "Filter - Light")
+
+![Filter - Dark](images/dark-filtered.png "Filter - Dark")
+
+
+My Issues
+
+![My Issues - Light](images/light-myissues.png "My Issues - Light")
+
+![My Issues - Dark](images/light-myissues.png "My Issues - Dark")
+
+
+Report Issue
+
+![Report - Light](images/light-report.png "Report - Light")
+
+![Report - Dark](images/dark-report.png "Report - Dark")
+
+
+
+## MVP
+
+- Implement Authentinction and Authorisation.
+
+A user should be able to:
+
+- Report a new bug.
+- Assign a bug to one or multiple users.
+- View all bugs.
+- View bugs reported by and assigned to self.
+- Mark bugs as open/closed
+- Delete bugs
+
+
+
+## Extensions
+
+- Light and Dark mode
+- Sorts/Filters
+
+
+
+## Further Work
+
+- Tidy up the repo (Split up components etc.)
 
 
 ## The project is built using:
